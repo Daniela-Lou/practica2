@@ -26,24 +26,47 @@ void InitData(){
 		V3[i]=(((i*j)%5)?-1:1)*(100.0*(rand()/(1.0*RAND_MAX)));
 	}
 }
-
+//exercici1
 void PrintVect( float vect[N], int from, int numel ) {
 	int i = numel;
 	for ( i; i!=0; i-- ){
-		printf( "%f ", vect[from] );
+		printf( "%f ", vect[from] ); //%f: float
 		from++;
 	}
 }
-
-int main (){
-	InitData();
-	PrintVect(V1,0, 10);
-	PrintVect(V2,0, 10);
-	PrintVect(V3,0, 10);
+//exercici2
+void PrintRow( float mat[N][N], int row, int from, int numel ){
+	int i = numel;
+	for (i; i!=0; i--) {
+		printf ( "%f", mat[row][from]);
+		from--;
+	}
+}
+//exercici3
+void MultEscalar( float vect[N], float vectres[N], float alfa ){
+	int i=0; 
+	for (i; i <N; i++){
+		vectres[i]=vect[i]*5;
+	}	
 }
 
 
+int main (){
+	InitData();
 
+	printf("Exercici 1\n");
+	PrintVect(V1,0, 10); //vector1
+	printf("\n\n");
+	PrintVect(V2,0, 10); //vector2
+	printf("\n\n");
+	PrintVect(V3,0, 10); //vector3
+	printf("\n\n");
+
+	printf("Exercici 2\n");
+	PrintRow(Mat,100,0,10);
+
+	printf("Exercici 3\n");
+}
 
 
 
