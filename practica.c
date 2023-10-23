@@ -3,9 +3,9 @@
 #include <math.h>
 #define N 512
  
-float V1,V2,V3,V4 [N];
+float V1[N], V2[N], V3[N], V4 [N];
  
-float Mat,MatDD[N][N];
+float Mat[N][N], MatDD[N][N];
 
 void InitData(){
 	int i,j;
@@ -30,7 +30,29 @@ void InitData(){
 void PrintVect( float vect[N], int from, int numel ) {
 	int i = numel;
 	for ( i; i!=0; i-- ){
-		printf( "%f", vect[from] );
+		printf( "%f ", vect[from] );
 		from++;
 	}
 }
+
+int main (){
+	InitData();
+	PrintVect(V1,0, 10);
+	PrintVect(V2,0, 10);
+	PrintVect(V3,0, 10);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
