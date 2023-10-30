@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+
+
 #define N 512
  
 float V1[N], V2[N], V3[N], V4 [N];
@@ -46,10 +48,24 @@ void PrintRow( float mat[N][N], int row, int from, int numel ){
 void MultEscalar( float vect[N], float vectres[N], float alfa ){
 	int i=0; 
 	for (i; i <N; i++){
-		vectres[i]=vect[i]*5;
+		vectres[i]=vect[i]*alfa;
+		printf("%f", vectres[i]);
 	}	
 }
+//ejercicio4
+float Scalar(float vect1[N], float vect2[N]){
+	int i;
+	float suma = 0.0;
+	for (i=0; i<N; i++){
+		float tmp;
+		tmp = (vect1[i] * vect2[i]);
+		suma+=tmp;
+	}
+	printf("%f", suma);
+	return suma;
+}
 
+//ejercicio5 
 
 int main (){
 	InitData();
@@ -64,8 +80,15 @@ int main (){
 
 	printf("Exercici 2\n");
 	PrintRow(Mat,100,0,10);
-
+	printf("\n\n");
+	
 	printf("Exercici 3\n");
+	//MultEscalar(V1, V2, 1);
+	printf("\n\n");
+
+	printf("Exercici 4\n");
+	Scalar(V1,V2);
+
 }
 
 
