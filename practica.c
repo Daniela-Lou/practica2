@@ -44,10 +44,11 @@ void PrintRow( float mat[N][N], int row, int from, int numel ){
 }
 //exercici3
 void MultEscalar( float vect[N], float vectres[N], float alfa ){
-	int i=0; 
-	for (i; i <N; i++){
-		vectres[i]=vect[i]*5;
-	}	
+	int i; 
+	for (i=0; i <N; i++){
+		vectres[i]=vect[i]*alfa;
+		printf("%f", vectres[i]);	
+	}
 }
 
 
@@ -63,9 +64,14 @@ int main (){
 	printf("\n\n");
 
 	printf("Exercici 2\n");
-	PrintRow(Mat,100,0,10);
+	PrintRow(Mat,100,0,10);	
+	printf("\n\n");
 
 	printf("Exercici 3\n");
+	printf("%f", V1[N]);
+	printf("\n\n");
+	MultEscalar(V1,V4,3);
+
 }
 
 
