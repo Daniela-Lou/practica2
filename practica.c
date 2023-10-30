@@ -66,6 +66,15 @@ float Scalar(float vect1[N], float vect2[N]){
 }
 
 //ejercicio5 
+float Magnitude( float vect[N] ){
+	int i; 
+	float suma;
+	for (i=0; i<N; i++){
+		suma+=vect[i]*vect[i];
+	}
+	float total = sqrt(suma);
+	printf("%f", total);
+}
 
 int main (){
 	InitData();
@@ -88,7 +97,10 @@ int main (){
 
 	printf("Exercici 4\n");
 	Scalar(V1,V2);
+	printf("\n\n");
 
+	printf("Exercici 5\n");
+	Magnitude(V1);
 }
 
 
