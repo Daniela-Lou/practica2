@@ -72,6 +72,31 @@ float Magnitude( float vect[N] ){
 	printf("%f", total);
 }
 
+//exercici6
+int Ortogonal( float vect1[N], float vect2[N] ){
+	int i;
+	float suma=0;
+	for (i=0; i<N; i++){
+		suma+=vect1[i]*vect2[i];
+	}
+	if (suma=0){
+		printf("1");
+	}else{
+		printf("0");
+	}
+}
+
+//exercici7
+void Projection( float vect1[N], float vect2[N], float vectres[N] ){
+	float alfa = Scalar(vect1,vect2)/Magnitude(vect2);
+	MultEscalar(vect1,vectres,alfa);
+}
+
+//exercici8
+float Infininorm( float M[N][N] ){
+
+}
+
 
 
 int main (){
@@ -101,6 +126,15 @@ int main (){
 
 	printf("Exercici 5\n");
 	Magnitude(V1);
+	printf("\n\n");
+
+	printf("Exercici 6\n");
+	Ortogonal(V1,V2);
+	printf("\n\n");
+
+	printf("Exercici 7\n");
+	Projection(V1,V2,V4);
+
 
 }
 
