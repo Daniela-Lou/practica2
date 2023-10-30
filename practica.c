@@ -50,6 +50,28 @@ void MultEscalar( float vect[N], float vectres[N], float alfa ){
 		printf("%f", vectres[i]);	
 	}
 }
+//exercici4
+float Scalar( float vect1[N], float vect2[N] ){
+	int i; 
+	float sumar;
+	for (i=0; i<N; i++){
+		sumar += vect1[i] * vect2[i];
+	}
+	printf("%f", sumar);
+	return sumar;
+}
+
+//exercici5
+float Magnitude( float vect[N] ){
+	int i; 
+	float suma;
+	for (i=0; i<N; i++){
+		suma+=vect[i]*vect[i];
+	}
+	float total = sqrt(suma);
+	printf("%f", total);
+}
+
 
 
 int main (){
@@ -68,9 +90,17 @@ int main (){
 	printf("\n\n");
 
 	printf("Exercici 3\n");
-	printf("%f", V1[N]);
-	printf("\n\n");
+	//printf("%f", V1[N]);
+	//printf("\n\n");
 	MultEscalar(V1,V4,3);
+	printf("\n\n");
+
+	printf("Exercici 4\n");
+	Scalar(V1,V2);
+	printf("\n\n");
+
+	printf("Exercici 5\n");
+	Magnitude(V1);
 
 }
 
