@@ -75,6 +75,71 @@ float Magnitude( float vect[N] ){
 	float total = sqrt(suma);
 	printf("%f", total);
 }
+//ejercicio8
+float infininorm( float M[N][N]) {
+		int i,j;
+		float maxim = 0;
+		float suma = 0;
+		for (i=0; i<=N-1;i++){
+			for (j=0; j<N;j++){
+				suma +=fabs(M[i][j]);
+				}
+			if (suma>maxim){
+				maxim=suma;
+			}
+		}	
+}
+//ejercicio9
+float Onenorm( float M[N][N]) {
+                int i,j;
+                float maxim = 0;
+                float suma = 0;
+                for (j=0; j<=N-1;j++){
+                        for (i=0; i<N;i++){
+                                suma +=fabs(M[i][j]);
+                                }
+                        
+                        if (suma>maxim){
+                                maxim=suma;
+                        }
+                }
+}
+
+//ejercicio10º
+float NormFrobenius( float M[N][N] ){
+	float suma = 0;
+	int i;
+	int j;
+	int potencia=2;
+	for (i=0;i<N;i++){
+		for (j=0;j<N;j++){
+			double coeficiente = M[i][j];
+			suma += pow(coeficiente,potencia);
+			}
+	}	
+	float frobenius = sqrt(suma);
+}	
+//ejercicio11 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 int main (){
 	InitData();
