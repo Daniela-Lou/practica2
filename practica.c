@@ -94,8 +94,57 @@ void Projection( float vect1[N], float vect2[N], float vectres[N] ){
 
 //exercici8
 float Infininorm( float M[N][N] ){
+	int i; 
+	int j;
+	float maxim =0;
+	float suma=0;
+	for (i=0; i<=N-1; i++){
+		for(j=0;j<N;j++){
+			suma+=fabs(M[i][j]);
+		}
+		if (suma>maxim){
+			maxim=suma;
+		}
+	}
+}
+//exercici9
+float Onenorm( float M[N][N] ){
+	int i;
+	int j;
+	float maxim=0;
+	float suma=0;
+	for (j=0;j<N;j++){
+		for(i=0;i<N;i++){
+			suma+=fabs(M[i][j]);	
+		}
+		if(suma>maxim){
+			maxim=suma;
+		}
+	}
+}
+
+//exercici10
+float NormFrobenius( float M[N][N] ){
+	float suma =0;
+	int i; 
+	int j;
+       	double potencia =2; 	
+	for (i=0;i<N;i++){
+		for (j=0;i<N;j++){
+			double coeficiente= M[i][j]; 
+			suma += pow(coeficiente,potencia);
+		}
+	}
+	float frobenius = sqrt(suma);
+}
+
+//exercici11
+int DiagonalDom( float M[N][N] ){
+
 
 }
+
+
 
 
 
