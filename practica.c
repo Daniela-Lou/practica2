@@ -91,18 +91,17 @@ int Ortogonal( float vect1[N], float vect2[N] ){
 
 //exercici7
 void Projection( float vect1[N], float vect2[N], float vectres[N] ){
-	int i=0;
+	int i;
 	float alfa = Scalar(vect1,vect2)/Magnitude(vect2);
 	MultEscalar(vect2,vectres,alfa);
-	for (i;i<N;i++){
+	for (i=0;i<N;i++){
 		printf("%f ", vectres[i]);
 	}
 }
 
 //exercici8
 float Infininorm( float M[N][N] ){
-	int i; 
-	int j;
+	int i, j;
 	float maxim =0;
 	float suma=0;
 	for (i=0; i<=N-1; i++){
@@ -118,8 +117,7 @@ float Infininorm( float M[N][N] ){
 }
 //exercici9
 float Onenorm( float M[N][N] ){
-	int i;
-	int j;
+	int i, j;
 	float maxim=0;
 	float suma=0;
 	for (j=0;j<N;j++){
@@ -136,13 +134,12 @@ float Onenorm( float M[N][N] ){
 
 //exercici10
 float NormFrobenius( float M[N][N] ){
-	int i; 
-	int j;
-	float frobenius;
+	int i, j;
+	double frobenius;
 	float coeficiente;  
-	float suma=0;	
+	double suma=0;	
 	for (i=0;i<N;i++){
-		for (j=0;i<N;j++){
+		for (j=0;j<N;j++){
 			coeficiente= M[i][j]; 
 			suma += (coeficiente*coeficiente);
 		}
@@ -150,13 +147,12 @@ float NormFrobenius( float M[N][N] ){
 	//printf("%f", suma);
 	frobenius = sqrt(suma);
 	//return frobenius;
-	//printf("%f", frobenius);
+	printf("%f", frobenius);
 }
 
 //exercici11
 int DiagonalDom( float M[N][N] ){
-	int i;
-	int j; 
+	int i, j; 
 	float valor;
 	float suma; 
 	int dominante = 1;
