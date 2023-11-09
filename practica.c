@@ -140,13 +140,49 @@ float NormFrobenius( float M[N][N] ){
 
 //exercici11
 int DiagonalDom( float M[N][N] ){
+	int i;
+	int j; 
+	float valor;
+	int dominante = 1;
+	while (dominante == 1){
+		for (i=0;i<N;i++)
+			for (j=0;j<N;j++){
+				suma += fabs(M[i][j]);
+				suma = suma - M[i][i];
+				valor =	fabs(M[i][i]);
+				if suma > valor{
+					dominante =0;
+				}
+			}
+		}
+	return dominante	
+}		
 
+//exercici12
+int Jacobi( float M[N][N] , float vect[N], float vectres[N], unsigned iter ){
+	int n; //vect = X i vectres = C (Termes independents) 
+	float tmp[N]; 
+	
+	if (DiagonalDom(M)==0){ //S'ha de complir: DiagonalDom=1 i X convergeix 
+		return 0
+	}else{ 
+		//DiagonalDom==1. Falta X
+		for (int i=0;i<N;i++){ vectres[i]=0.0;}
 
+		for (n=0;n<iter;n++){
+			for (int i =0; i <N; i++){
+				tmp[i] = vect[i];
+				for (int j=0; j<N; j++){
+					if (i!=j) { tmp[i] -= M[j][i] * vectres[j];}
+				}
+				tmp[i] /= M[i][i];
+			}	
+			for (int i=0; i<N; i++){ vectres[i] = tmp[i];}
+			
+		}
+		return 1;
+	}
 }
-
-
-
-
 
 int main (){
 	InitData();
