@@ -143,28 +143,30 @@ int DiagonalDom( float M[N][N] ){
 	int i;
 	int j; 
 	float valor;
+	float suma; 
 	int dominante = 1;
 	while (dominante == 1){
-		for (i=0;i<N;i++)
+		for (i=0;i<N;i++){
 			for (j=0;j<N;j++){
 				suma += fabs(M[i][j]);
 				suma = suma - M[i][i];
 				valor =	fabs(M[i][i]);
-				if suma > valor{
+				if (suma > valor){
 					dominante =0;
 				}
 			}
 		}
-	return dominante	
+	}
+	return dominante;	
 }		
 
 //exercici12
 int Jacobi( float M[N][N] , float vect[N], float vectres[N], unsigned iter ){
-	int n; //vect = X i vectres = C (Termes independents) 
+	int n; //vect = termes independents - vectres = incògnites
 	float tmp[N]; 
 	
 	if (DiagonalDom(M)==0){ //S'ha de complir: DiagonalDom=1 i X convergeix 
-		return 0
+		return 0;
 	}else{ 
 		//DiagonalDom==1. Falta X
 		for (int i=0;i<N;i++){ vectres[i]=0.0;}
@@ -173,7 +175,7 @@ int Jacobi( float M[N][N] , float vect[N], float vectres[N], unsigned iter ){
 			for (int i =0; i <N; i++){
 				tmp[i] = vect[i];
 				for (int j=0; j<N; j++){
-					if (i!=j) { tmp[i] -= M[j][i] * vectres[j];}
+					if (i!=j) {tmp[i] -= M[j][i] * vectres[j];}
 				}
 				tmp[i] /= M[i][i];
 			}	
@@ -186,41 +188,7 @@ int Jacobi( float M[N][N] , float vect[N], float vectres[N], unsigned iter ){
 
 int main (){
 	InitData();
-
-	printf("Exercici 1\n");
-	PrintVect(V1,0, 10); //vector1
-	printf("\n\n");
-	PrintVect(V2,0, 10); //vector2
-	printf("\n\n");
-	PrintVect(V3,0, 10); //vector3
-	printf("\n\n");
-
-	printf("Exercici 2\n");
-	PrintRow(Mat,100,0,10);	
-	printf("\n\n");
-
-	printf("Exercici 3\n");
-	//printf("%f", V1[N]);
-	//printf("\n\n");
-	MultEscalar(V1,V4,3);
-	printf("\n\n");
-
-	printf("Exercici 4\n");
-	Scalar(V1,V2);
-	printf("\n\n");
-
-	printf("Exercici 5\n");
-	Magnitude(V1);
-	printf("\n\n");
-
-	printf("Exercici 6\n");
-	Ortogonal(V1,V2);
-	printf("\n\n");
-
-	printf("Exercici 7\n");
-	Projection(V1,V2,V4);
-
-
+	PrintRow(Mat,0,0,10);
 }
 
 
