@@ -47,7 +47,6 @@ void MultEscalar( float vect[N], float vectres[N], float alfa ){
 	int i; 
 	for (i=0; i <N; i++){
 		vectres[i]=vect[i]*alfa;
-		//printf("%f", vectres[i]);	
 	}
 }
 //exercici4
@@ -68,7 +67,6 @@ float Magnitude( float vect[N] ){
 		suma+=vect[i]*vect[i];
 	}
 	float total = sqrt(suma);
-	//printf("%f", total);
 	return total;
 }
 
@@ -163,10 +161,9 @@ int Jacobi( float M[N][N] , float vect[N], float vectres[N], unsigned iter ){
 	int n; //vect = termes independents / vectres = incògnites
 	float tmp[N]; 
 	
-	if (DiagonalDom(M)==0){ //S'ha de complir: DiagonalDom=1 i X convergeix 
+	if (DiagonalDom(M)==0){ //S'ha de complir: DiagonalDom=1
 		return 0;
-	}else{ 
-		//DiagonalDom==1. Falta X
+	}else{ //Calcular X
 		for (int i=0;i<N;i++){ vectres[i]=0.0;}
 
 		for (n=0;n<iter;n++){
