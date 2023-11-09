@@ -86,7 +86,6 @@ int Ortogonal( float vect1[N], float vect2[N] ){
 
 //exercici7
 void Projection( float vect1[N], float vect2[N], float vectres[N] ){
-	int i;
 	float alfa = Scalar(vect1,vect2)/Magnitude(vect2);
 	MultEscalar(vect2,vectres,alfa);
 	
