@@ -47,7 +47,7 @@ void MultEscalar( float vect[N], float vectres[N], float alfa ){
 	int i; 
 	for (i=0; i <N; i++){
 		vectres[i]=vect[i]*alfa;
-		printf("%f", vectres[i]);	
+		//printf("%f", vectres[i]);	
 	}
 }
 //exercici4
@@ -57,7 +57,6 @@ float Scalar( float vect1[N], float vect2[N] ){
 	for (i=0; i<N; i++){
 		sumar += vect1[i] * vect2[i];
 	}
-	//printf("%f", sumar);
 	return sumar;
 }
 
@@ -80,11 +79,9 @@ int Ortogonal( float vect1[N], float vect2[N] ){
 	for (i=0; i<N; i++){
 		suma+=vect1[i]*vect2[i];
 	}
-	if (suma=0){
-		//printf("1");
+	if (suma==0){
 		return 1;
 	}else{
-		//printf("0");
 		return 0;
 	}
 }
@@ -94,9 +91,7 @@ void Projection( float vect1[N], float vect2[N], float vectres[N] ){
 	int i;
 	float alfa = Scalar(vect1,vect2)/Magnitude(vect2);
 	MultEscalar(vect2,vectres,alfa);
-	for (i=0;i<N;i++){
-		printf("%f ", vectres[i]);
-	}
+	
 }
 
 //exercici8
@@ -191,8 +186,6 @@ int Jacobi( float M[N][N] , float vect[N], float vectres[N], unsigned iter ){
 
 int main (){
 	InitData();
-	//PrintRow(MatDD,100,90,10); No encaixa
-	
 
 }
 
