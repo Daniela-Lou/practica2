@@ -38,8 +38,8 @@ void PrintVect( float vect[N], int from, int numel ) {
 void PrintRow( float mat[N][N], int row, int from, int numel ){
 	int i = numel;
 	for (i; i!=0; i--) {
-		printf ( "%f", mat[row][from]);
-		from--;
+		printf ( "%f ", mat[row][from]);
+		from++;
 	}
 }
 //exercici3
@@ -57,7 +57,7 @@ float Scalar( float vect1[N], float vect2[N] ){
 	for (i=0; i<N; i++){
 		sumar += vect1[i] * vect2[i];
 	}
-	printf("%f", sumar);
+	//printf("%f", sumar);
 	return sumar;
 }
 
@@ -69,7 +69,8 @@ float Magnitude( float vect[N] ){
 		suma+=vect[i]*vect[i];
 	}
 	float total = sqrt(suma);
-	printf("%f", total);
+	//printf("%f", total);
+	return total;
 }
 
 //exercici6
@@ -80,16 +81,22 @@ int Ortogonal( float vect1[N], float vect2[N] ){
 		suma+=vect1[i]*vect2[i];
 	}
 	if (suma=0){
-		printf("1");
+		//printf("1");
+		return 1;
 	}else{
-		printf("0");
+		//printf("0");
+		return 0;
 	}
 }
 
 //exercici7
 void Projection( float vect1[N], float vect2[N], float vectres[N] ){
+	int i=0;
 	float alfa = Scalar(vect1,vect2)/Magnitude(vect2);
-	MultEscalar(vect1,vectres,alfa);
+	MultEscalar(vect2,vectres,alfa);
+	for (i;i<N;i++){
+		printf("%f ", vectres[i]);
+	}
 }
 
 //exercici8
@@ -106,6 +113,7 @@ float Infininorm( float M[N][N] ){
 			maxim=suma;
 		}
 	}
+	return maxim;
 }
 //exercici9
 float Onenorm( float M[N][N] ){
@@ -121,6 +129,7 @@ float Onenorm( float M[N][N] ){
 			maxim=suma;
 		}
 	}
+	return maxim;
 }
 
 //exercici10
@@ -136,6 +145,7 @@ float NormFrobenius( float M[N][N] ){
 		}
 	}
 	float frobenius = sqrt(suma);
+	return frobenius;
 }
 
 //exercici11
@@ -188,7 +198,8 @@ int Jacobi( float M[N][N] , float vect[N], float vectres[N], unsigned iter ){
 
 int main (){
 	InitData();
-	PrintRow(Mat,0,0,10);
+	//PrintRow(MatDD,100,90,10); No encaixa
+	Infininorm(Mat);
 }
 
 
