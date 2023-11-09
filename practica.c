@@ -109,9 +109,10 @@ float Infininorm( float M[N][N] ){
 		for(j=0;j<N;j++){
 			suma+=fabs(M[i][j]);
 		}
-		if (suma>maxim){
+		if (suma>=maxim){
 			maxim=suma;
 		}
+		suma=0;
 	}
 	return maxim;
 }
@@ -128,24 +129,28 @@ float Onenorm( float M[N][N] ){
 		if(suma>maxim){
 			maxim=suma;
 		}
+		suma=0;
 	}
 	return maxim;
 }
 
 //exercici10
 float NormFrobenius( float M[N][N] ){
-	float suma =0;
 	int i; 
 	int j;
-       	double potencia =2; 	
+	float frobenius;
+	float coeficiente;  
+	float suma=0;	
 	for (i=0;i<N;i++){
 		for (j=0;i<N;j++){
-			double coeficiente= M[i][j]; 
-			suma += pow(coeficiente,potencia);
+			coeficiente= M[i][j]; 
+			suma += (coeficiente*coeficiente);
 		}
 	}
-	float frobenius = sqrt(suma);
-	return frobenius;
+	//printf("%f", suma);
+	frobenius = sqrt(suma);
+	//return frobenius;
+	//printf("%f", frobenius);
 }
 
 //exercici11
@@ -199,7 +204,12 @@ int Jacobi( float M[N][N] , float vect[N], float vectres[N], unsigned iter ){
 int main (){
 	InitData();
 	//PrintRow(MatDD,100,90,10); No encaixa
-	Infininorm(Mat);
+	printf("%f\n", Infininorm(Mat));
+	printf("%f\n", Onenorm(Mat));
+	NormFrobenius(Mat);
+	//printf("%f\n", NormFrobenius(Mat));
+//	printf("%d\n", DiagonalDom(Mat));
+
 }
 
 
