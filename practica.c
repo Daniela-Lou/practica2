@@ -102,8 +102,7 @@ void Projection( float vect1[N], float vect2[N], float vectres[N] ){
 //exercici8
 float Infininorm( float M[N][N] ){
 	int i, j;
-	float maxim =0;
-	float suma=0;
+	float maxim =0, suma=0;
 	for (i=0; i<=N-1; i++){
 		for(j=0;j<N;j++){
 			suma+=fabs(M[i][j]);
@@ -118,8 +117,7 @@ float Infininorm( float M[N][N] ){
 //exercici9
 float Onenorm( float M[N][N] ){
 	int i, j;
-	float maxim=0;
-	float suma=0;
+	float maxim=0, suma=0;
 	for (j=0;j<N;j++){
 		for(i=0;i<N;i++){
 			suma+=fabs(M[i][j]);	
@@ -135,45 +133,39 @@ float Onenorm( float M[N][N] ){
 //exercici10
 float NormFrobenius( float M[N][N] ){
 	int i, j;
-	double frobenius;
-	float coeficiente;  
-	double suma=0;	
+	float frobenius, coeficiente, suma=0;	
 	for (i=0;i<N;i++){
 		for (j=0;j<N;j++){
 			coeficiente= M[i][j]; 
 			suma += (coeficiente*coeficiente);
 		}
 	}
-	//printf("%f", suma);
 	frobenius = sqrt(suma);
-	//return frobenius;
-	printf("%f", frobenius);
+	return frobenius;
 }
 
 //exercici11
 int DiagonalDom( float M[N][N] ){
-	int i, j; 
-	float valor;
-	float suma; 
-	int dominante = 1;
-	while (dominante == 1){
-		for (i=0;i<N;i++){
-			for (j=0;j<N;j++){
+	int i, j, dominante=1;
+	float diagonal, suma=0; 
+	for (i=0;i<N;i++){
+		for (j=0;j<N;j++){
+			if (i!=j){
 				suma += fabs(M[i][j]);
-				suma = suma - M[i][i];
-				valor =	fabs(M[i][i]);
-				if (suma > valor){
-					dominante =0;
-				}
-			}
+			}			
 		}
+		diagonal=fabs(M[i][i]);
+		if (suma > diagonal){
+			dominante =0;
+		}
+		suma=0;
 	}
 	return dominante;	
 }		
 
 //exercici12
 int Jacobi( float M[N][N] , float vect[N], float vectres[N], unsigned iter ){
-	int n; //vect = termes independents - vectres = incògnites
+	int n; //vect = termes independents / vectres = incògnites
 	float tmp[N]; 
 	
 	if (DiagonalDom(M)==0){ //S'ha de complir: DiagonalDom=1 i X convergeix 
@@ -200,11 +192,7 @@ int Jacobi( float M[N][N] , float vect[N], float vectres[N], unsigned iter ){
 int main (){
 	InitData();
 	//PrintRow(MatDD,100,90,10); No encaixa
-	printf("%f\n", Infininorm(Mat));
-	printf("%f\n", Onenorm(Mat));
-	NormFrobenius(Mat);
-	//printf("%f\n", NormFrobenius(Mat));
-//	printf("%d\n", DiagonalDom(Mat));
+	
 
 }
 
