@@ -26,6 +26,7 @@ void InitData(){
 		V3[i]=(((i*j)%5)?-1:1)*(100.0*(rand()/(1.0*RAND_MAX)));
 	}
 }
+
 //exercici1
 void PrintVect( float vect[N], int from, int numel ) {
 	int i = numel;
@@ -34,6 +35,7 @@ void PrintVect( float vect[N], int from, int numel ) {
 		from++;
 	}
 }
+
 //exercici2
 void PrintRow( float mat[N][N], int row, int from, int numel ){
 	int i = numel;
@@ -42,6 +44,7 @@ void PrintRow( float mat[N][N], int row, int from, int numel ){
 		from++;
 	}
 }
+
 //exercici3
 void MultEscalar( float vect[N], float vectres[N], float alfa ){
 	int i; 
@@ -49,6 +52,7 @@ void MultEscalar( float vect[N], float vectres[N], float alfa ){
 		vectres[i]=vect[i]*alfa;
 	}
 }
+
 //exercici4
 float Scalar( float vect1[N], float vect2[N] ){
 	int i; 
@@ -106,6 +110,7 @@ float Infininorm( float M[N][N] ){
 	}
 	return maxim;
 }
+
 //exercici9
 float Onenorm( float M[N][N] ){
 	int i, j;
